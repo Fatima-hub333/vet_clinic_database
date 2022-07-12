@@ -16,7 +16,13 @@ UPDATE animals SET species = 'unspecified';
 SELECT * FROM animals;
 ROLLBACK;
 
+-- Inside Transaction
 BEGIN TRANSACTION;
 UPDATE animals SET species = 'digimon' WHERE name LIKE '%mon';
 UPDATE animals SET species = 'pokemon' WHERE name NOT LIKE '%mon%';
 COMMIT TRANSACTION;
+
+BEGIN TRANSACTION;
+DELETE FROM animals;
+ROLLBACK;
+SELECT 8 FROM animals;
