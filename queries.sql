@@ -11,7 +11,12 @@ SELECT * FROM animals WHERE weight_kg >= 10.4 AND weight_kg <= 17.3;
 
 -- 2nd milestone
 
-BEGIN;
+BEGIN TRANSACTION;
 UPDATE animals SET species = 'unspecified';
 SELECT * FROM animals;
 ROLLBACK;
+
+BEGIN TRANSACTION;
+UPDATE animals SET species = 'digimon' WHERE name LIKE '%mon';
+UPDATE animals SET species = 'pokemon' WHERE name NOT LIKE '%mon%';
+COMMIT TRANSACTION;
