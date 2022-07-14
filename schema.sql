@@ -36,3 +36,13 @@ ALTER TABLE animals ADD CONSTRAINT animal_species FOREIGN KEY (species_id) REFER
 ALTER TABLE animals ADD owner_id INT;
 
 ALTER TABLE animals ADD CONSTRAINT animal_owner FOREIGN KEY (owner_id) REFERENCES owners (id);
+
+-- Fourth Day Milestone
+
+CREATE TABLE vets(
+  id                                   INT GENERATED ALWAYS AS IDENTITY,
+  name                                 VARCHAR(100),
+  age                                  INT,
+  date_of_graduation                   DATE,
+  PRIMARY KEY (id)
+);
