@@ -62,9 +62,15 @@ SELECT species, MAX(weight_kg), MIN(weight_kg) FROM animals GROUP BY species;
 -- What is the average number of escape attempts per animal type of those born between 1990 and 2000?
 SELECT species, MAX(weight_kg), MIN(weight_kg) FROM animals GROUP BY species;
 
+
 -- What is the average number of escape attempts per animal type of those born between 1990 and 2000?
 SELECT species, AVG(escape_attempts) FROM animals WHERE date_of_birth <= '2000-12-31' AND date_of_birth >= '1990-01-01' GROUP BY species;
 
+=======
+-- 6- What is the average number of escape attempts per animal type of those born between 1990 and 2000?
+SELECT species, AVG(escape_attempts) FROM animals WHERE date_of_birth <= '2000-12-31' AND date_of_birth >= '1990-01-01' GROUP BY species;
+
+-- Third Day Milestone
 -- What animals belong to Melody Pond?
 SELECT full_name AS owner, name AS animal FROM owners JOIN animals ON owners.id = animals.owner_id WHERE owners.full_name = 'Melody Pond';
 
@@ -75,18 +81,27 @@ SELECT animals.name AS pokemon_type FROM animals JOIN species ON animals.species
 SELECT name, full_name FROM animals RIGHT JOIN owners ON animals.owner_id = owners.id;
 
 -- How many animals are there per species?
+
 SELECT species.name AS Species, COUNT (animals.name) AS Total_number FROM species JOIN animals ON species.id = animals.species_id GROUP BY species.name;
+=======
+SELECT species.name AS Species, COUNT (animals.name) AS Total_number FROM species JOIN animals ON species.id = animals.species_id Group By species.name;
+
 
 -- List all Digimon owned by Jennifer Orwell.
 SELECT name AS list_of_digimons FROM animals JOIN owners ON animals.owner_id = owners.id WHERE full_name = 'Jennifer Orwell' AND species_id = 2;
 
 -- List all animals owned by Dean Winchester that haven't tried to escape.
+
 SELECT name AS AnimalsThatDidnotEscape FROM animals JOIN owners ON animals.owner_id = owners.id WHERE full_name = 'Dean Winchester' AND escape_attempts = 0;
+=======
+SELECT name AS AnimalsDidnotEscape FROM animals JOIN owners ON animals.owner_id = owners.id WHERE full_name = 'Dean Winchester' AND escape_attempts = 0;
+
 
 -- Who owns the most animals?
 SELECT owners.full_name as owner, count as Max_numberOfAnimals FROM (SELECT full_name, count(animals.owner_id) 
 FROM owners  JOIN animals  ON owners.id = animals.owner_id GROUP BY owners.full_name) 
 AS owners WHERE count = (SELECT MAX(count) FROM (SELECT full_name, count(animals.owner_id) 
+
 FROM owners JOIN animals  ON owners.id = animals.owner_id GROUP BY owners.full_name) AS owners);
 
 -- Who was the last animal seen by William Tatcher?
@@ -168,3 +183,5 @@ WHERE vets.name = 'Maisy Smith'
 GROUP by vets.name, species.name
 ORDER BY count(animals.species_id) desc
 LIMIT 1;
+=======
+FROM owners JOIN animals  ON owners.id = animals.owner_id GROUP BY owners.full_name) AS owners);
