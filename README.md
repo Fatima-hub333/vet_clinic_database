@@ -4,6 +4,7 @@
 
 > This database project contains files that creates a table, insert data into the table and queries the data in the table.
 
+![screenshot](schema-diagram.png)
 
 ## Getting Started
 
