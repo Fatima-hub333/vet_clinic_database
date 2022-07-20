@@ -21,6 +21,12 @@ This repository includes files with plain SQL that can be used to recreate a dat
 - Twitter: [@twitterhandle](https://twitter.com/Fatima_developr)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/fatimaa-zahir/)
 
+👤 **Stanley Sunday**
+
+- GitHub: [@idungstanley](https://github.com/idungstanley)
+- Twitter: [@IdungStanley](https://twitter.com/IdungStanley)
+- LinkedIn: [Stanley Idung Sunday](https://www.linkedin.com/in/sundaystanley56/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
