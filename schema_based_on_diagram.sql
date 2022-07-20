@@ -19,3 +19,30 @@ CREATE TABLE treatments(
   name   VARCHAR NOT NULL,
   PRIMARY KEY(id)
 );
+
+CREATE TABLE invoices(
+  id  BIGSERIAL PRIMARY KEY NOT NULL,
+  total_amount DECIMAL NOT NULL,
+  generated-at TIMESTAMP NOT NULL,
+  paid_at TIMESTAMP NOT NULL,
+  medical_history_id INT,
+  FOREIGN KEY (medical_history_id) REFERENCES medical_histories(id)
+);
+
+CREATE TABLE invoice_items(
+  id  BIGSERIAL PRIMARY KEY NOT NULL,
+  unit_price DECIMAL NOT NULL,
+  quantity INT ,
+  total_price DECIMAL NOT NULL,
+  invoice_id INT ,
+  treatment_id INT
+  FOREIGN KEY (treatment_id) REFERENCES treatments(id)
+  FOREIGN KEY (invoice_id) REFERENCES invoices(id),
+);
+
+CREATE TABLE doctors (
+  treatment_id INT,
+  medical_history_id INT,
+  FOREIGN KEY (treatment_id) REFERENCES treatments(id),
+  FOREIGN KEY (medical_history_id) REFERENCES medical_histories(id)
+)
